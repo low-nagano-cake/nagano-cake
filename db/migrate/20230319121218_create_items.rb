@@ -1,6 +1,6 @@
-class CreateItmes < ActiveRecord::Migration[6.1]
+class CreateItems < ActiveRecord::Migration[6.1]
   def change
-    create_table :itmes do |t|
+    create_table :items do |t|
     ##ここから記載(佐藤)
      t.integer :genre_id,   null:false
      t.string :name,        null:false
