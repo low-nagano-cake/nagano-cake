@@ -1,0 +1,46 @@
+新規作成画面
+
+
+<%= form_with model:@item,local:true do |f| %>
+
+
+  <div class="form-group">
+    <%= f.label:name ,'商品画像' %>
+    <%= f.file_field :image, accept: "image/*" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label:name ,'商品名' %>
+    <%= f.text_field :name, class: 'form-control col-md-3' %>
+  </div>
+  <div class="form-group">
+    <%= f.label:introduction , '商品説明' %>
+    <%= f.text_field :introduction, class: 'form-control col-md-3' %>
+  </div>
+  <div class="form-group">
+    <%= f.label:genre_id, 'ジャンル' %>
+    <%= f.text_area :genre_id, class: 'form-control col-md-3' %>
+    <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name) %>
+    <!--select_tag 要素名, options_from_collection_for_select(オブジェクトの配列, value属性にセットしたいオブジェクトの属性, 表示に使用するオブジェクトの属性)-->
+
+
+  </div>
+    <div class="form-group">
+    <%= f.label:price , '税抜価格' %>
+    <%= f.text_area :price, class: 'form-control col-md-3' %>
+  </div>
+    <div class="form-group">
+    <%= f.label:is_active , '販売ステータス' %>
+    <%= f.text_area :is_active, class: 'form-control col-md-3' %>
+  </div>
+
+
+  <div class>
+  <%=f.submit '新規登録'%>
+  </div>
+  
+<% end %>
+
+
+<!--ジャンルと販売ステータスを作ってないので一旦保留>
+
