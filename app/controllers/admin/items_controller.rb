@@ -23,13 +23,16 @@ end
 
 def update
  @item = Item.find(params[:id])
- @item.update
+ if @item.update(item_params)
  redirect_to admin_item_path(@item.id)
+ else
+ render "show"
+ end
 end
 
 private
   def item_params
-   params.permit(:genre_id, :name, :introduction, :price, :is_active, :image)
+   params.require(:item).permit(:genre_id, :name, :introduction, :price, :is_active, :image)
   end
-  
+
 end 
