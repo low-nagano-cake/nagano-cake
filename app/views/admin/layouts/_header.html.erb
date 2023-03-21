@@ -1,0 +1,18 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <%= link_to "LOGO", admin_top_path, class: "navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <div class="navbar-nav ml-auto">
+        <a class="nav-link active" aria-current="page" href="#">Home</a>
+       <%= link_to "About", admin_top_path, class: "nav-link active" %>
+       <%= link_to "商品一覧", admin_top_path, class: "nav-link active" %>
+       <%= link_to "顧客一覧", admin_top_path, class: "nav-link active" %>
+      </div>
+    </div>
+  </div>
+</nav>
+</header>
