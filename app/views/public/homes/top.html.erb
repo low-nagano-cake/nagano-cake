@@ -26,29 +26,14 @@
 
 <h1>新着商品</h1>
 
-
-
 <div class="d-flex flex-row">
-  <div class="col-md-3">
-    <p>画像</p>
-    <p>商品名</p>
-    <p>値段</p>
-  </div>
-  <div class="col-md-3">
-    <p>画像</p>
-    <p>商品名</p>
-    <p>値段</p>
-  </div>
-  <div class="col-md-3">
-    <p>画像</p>
-    <p>商品名</p>
-    <p>値段</p>
-  </div>
-  <div class="col-md-3">
-    <p>画像</p>
-    <p>商品名</p>
-    <p>値段</p>
-  </div>
+  <% @items.each do |item| %>
+    <div class="col-md-3">
+      <div><%= image_tag(item.image.variant(resize: "100x100")) %></div>
+      <p><%= item.name %></p>
+      <p>¥<%= item.price %></p>
+    </div>
+  <% end %>
 </div>
 
 <div class='float-sm-right'>
