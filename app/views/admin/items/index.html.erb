@@ -5,7 +5,11 @@
 
 <div class="row justify-content-between">
 <div class="col-4">商品一覧</div>
-<div class="col-4"><%= button_to "+", {controller: "items", action: "new"}, {method: :get }%></div>
+<div class="col-4">
+ <%= link_to new_admin_item_path do %>
+<button type="button" class="btn btn-primary rounded-circle p-0" style="width:2rem;height:2rem;">＋</button>
+ <% end %>
+</div>
 </div>
 
 <div class="row justify-content-center">
@@ -28,8 +32,11 @@
   <td><% if item.is_active == true %>販売中
      <% else item.is_active == false %>販売停止中
      <% end %><td>
+  <td><%= link_to "Destroy", admin_item_path(item.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
+  </tr>
+  <% end %>
  </tr>
- <% end %>
+ 
 </tbody>
 
 </table>
