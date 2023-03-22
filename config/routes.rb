@@ -6,9 +6,11 @@ root :to => "public/homes#top"
 
 get "about" => "public/homes#about", as: "about"
 
-namespace :public do
-  resources :itmes,only: [:index,:show],as: 'items'
+
+scope module: 'public' do
+  resources :items, only: [:index, :show]
 end
+
 
 # 顧客用
 # URL /customers/sign_in ...
@@ -25,8 +27,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
 
 namespace :admin do
-resources :items, only: [:index, :show, :new, :create, :show, :edit, :update, :destroy]
-resources :genres, only: [:index, :create, :edit, :update]
+  resources :items, only: [:index, :show, :new, :create, :show, :edit, :update, :destroy]
+  resources :genres, only: [:index, :create, :edit, :update]
 end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
