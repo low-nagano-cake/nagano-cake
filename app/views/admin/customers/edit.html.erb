@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h2><%= @customer.last_name %><%= @customer.first_name %>の会員情報</h2>
+      <div class="col-md-6 ml-auto">
+       <%= form_with model:@customer, local:true do |f| %>
+
+       <div class="form-group">
+         <%= f.label :会員ID %>
+         <%= @customer.id %>
+       </div>
+
+       <div class="form-group">
+         <%= f.label :氏名 %>
+         <%= f.text_field:last_name %>&emsp;<%= f.text_field:first_name %>
+       </div>
+
+       <div class="form-group">
+         <%= f.label :フリガナ %>
+         <%= f.text_field:last_name_kana %>&emsp;<%= f.text_field:first_name_kana %>
+       </div>
+       
+        <div class="form-group">
+         <%= f.label :郵便番号 %>
+         <%= f.text_field:postal_code %>
+       </div>
+       
+        <div class="form-group">
+         <%= f.label :住所 %>
+         <%= f.text_field:address %>
+       </div>
+       
+        <div class="form-group">
+         <%= f.label :電話番号 %>
+         <%= f.text_field:telephone_number %>
+       </div>
+       
+        <div class="form-group">
+         <%= f.label :メールアドレス %>
+         <%= f.text_field:email %>
+       </div>
+       
+       <!-- <div class="form-group">-->
+       <!--  <%= f.label :会員ステータス %>-->
+       <!--  ここでenumを使います-->
+       <!--</div>-->
+       
+       <div class="form-group">
+         <%= f.submit "変更", class: "btn btn-success" %>
+       </div>
+       
+      </div>
+    </div>
+  </div>
+</div>

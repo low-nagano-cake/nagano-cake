@@ -28,7 +28,8 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show, :new, :create, :show]
   resources :genres, only: [:index, :create, :edit, :update]
   resources :customers, only: [:index, :show, :edit, :update]
-  get 'homes/top' => 'admin/homes/top', as: '/top'
+  resources :orders, only: [:show, :update]
+  get '/' => 'admin/homes#top'
 end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
