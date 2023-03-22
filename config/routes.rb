@@ -8,6 +8,13 @@ get '/admin' => 'admin/homes#top', as: 'admin'
 get "about" => "public/homes#about", as: "about"
 
 
+# 顧客用
+# URL /customers/sign_in ...
+devise_for :customers,skip: [:passwords], controllers: {
+  registrations: "public/registrations",
+  sessions: 'public/sessions'
+}
+
 scope module: 'public' do
   resources :items, only: [:index, :show]
   resources :customers, only: [:show, :edit, :update, :destroy]
@@ -17,12 +24,7 @@ end
 get "customers/:id/exit" => "public/customers#exit", as: "customer_exit"
 
 
-# 顧客用
-# URL /customers/sign_in ...
-devise_for :customers,skip: [:passwords], controllers: {
-  registrations: "public/registrations",
-  sessions: 'public/sessions'
-}
+
 
 
 # 管理者用
