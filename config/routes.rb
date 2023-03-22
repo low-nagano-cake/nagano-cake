@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 # ルート
 root :to => "public/homes#top"
 
+get '/admin' => 'admin/homes#top', as: 'admin'
 get "about" => "public/homes#about", as: "about"
 
 # 顧客用
@@ -25,5 +26,13 @@ resources :items, only: [:index, :show, :new, :create, :show, :edit, :update, :d
 resources :genres, only: [:index, :create, :edit, :update]
 end
 
+
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+
+
+
+
+
+
