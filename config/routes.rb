@@ -6,6 +6,10 @@ root :to => "public/homes#top"
 
 get "about" => "public/homes#about", as: "about"
 
+namespace :public do
+  resources :itmes,only: [:index,:show],as: 'items'
+end
+
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {
