@@ -4,11 +4,7 @@ Rails.application.routes.draw do
 # ルート
 root :to => "public/homes#top"
 
-
-scope :public do
-  resources :homes, only: [:top,:about]
-end
-
+get "about" => "public/homes#about", as: "about"
 
 # 顧客用
 # URL /customers/sign_in ...
