@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h2><%= @customer.last_name %><%= @customer.first_name %>の会員情報</h2>
+      <div class="col-md-6 ml-auto">
+        <table class="table">
+            <thead>
+              <tr>
+                <th>会員ID</th>
+                <td>
+                  <%= @customer.id %>&ensp;
+                  <% if @customer.deleted_at == nil %>
+                    有効
+                  <% else %>
+                    退会
+                  <% end %>
+                </td>
+              </tr>
+
+              <tr>
+                <th>氏名</th>
+                <td style><%= @customer.last_name %>&ensp;<%= @customer.first_name %></td>
+              </tr>
+
+              <tr>
+                <th>フリガナ</th>
+                <td><%= @customer.last_name_kana %>&ensp;<%= @customer.first_name_kana %></td>
+              </tr>
+
+              <tr>
+                <th>郵便番号</th>
+                <td><%= @customer.postal_code %></td>
+              </tr>
+
+              <tr>
+                 <th>住所</th>
+                <td><%= @customer.address %></td>
+              </tr>
+
+              <tr>
+                <th>電話番号</th>
+                <td><%= @customer.telephone_number %></td>
+              </tr>
+
+              <tr>
+                <th>メールアドレス</th>
+                <td><%= @customer.email %></td>
+              </tr>
+          </thead>
+  	</table>
+      </div>
+    </div>
+  </div>
+</div>
