@@ -1,1 +1,82 @@
-<h1>customers#edit</h1>
+<div class="container px-5">
+  <h3 class="my-4">会員情報編集</h3>
+  <%= form_with model: @customer do |f| %>
+  <table class="m-5">
+    <tr class="field">
+      <td>
+        氏名
+      </td>
+      <td>
+        <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control border border-dark" %>
+      </td>
+      <td>
+        <%= f.text_field :first_name, autocomplete: "first_name", class: "form-control border border-dark" %>
+      </td>
+      <td></td>
+    </tr>
+    <tr class="field">
+      <td>
+        フリガナ
+      </td>
+      <td>
+        <%= f.text_field :last_name_kana, autocomplete: "last_name_kana", class: "form-control border border-dark" %>
+      </td>
+      <td>
+        <%= f.text_field :first_name_kana, autocomplete: "first_name_kana", class: "form-control border border-dark" %>
+      </td>
+      <td></td>
+    </tr>
+    <tr class="field">
+      <td>
+        郵便番号
+      </td>
+      <td>
+        <%= f.text_field :postal_code, autocomplete: "postal_code", class: "form-control border border-dark" %>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="field">
+      <td>
+        住所
+      </td>
+      <td colspan="3">
+        <%= f.text_field :address, autocomplete: "address", class: "form-control border border-dark" %>
+      </td>
+    </tr>
+    <tr class="field">
+      <td>
+        電話番号
+      </td>
+      <td>
+        <%= f.text_field :telephone_number, autocomplete: "telephone_number", class: "form-control border border-dark" %>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="field">
+      <td>
+        メールアドレス
+      </td>
+      <td>
+        <%= f.email_field :email, autocomplete: "email", class: "form-control border border-dark" %>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    
+    <tr>
+      <td></td>
+      <td>
+        <div class="actions">
+          <%= f.submit "編集内容を保存" %>
+        </div>
+      </td>
+      <td></td>
+      <td>
+        <%= link_to "退会する", customer_exit_path, class: 'btn btn-danger' %>
+      </td>
+    </tr>
+  </table>
+  <% end %>
+</div>
