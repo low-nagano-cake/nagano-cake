@@ -17,7 +17,13 @@
             <td><%= customer.id %></td>
             <td><%= customer.name %></td>
             <td><%= customer.email %></td>
-            <td><%= customer.is_deleted %></td>
+            <td>
+                <% if @customer.deleted_at == nil %>
+                    有効
+                  <% else %>
+                    退会
+                <% end %>
+            </td>
           </tr>
         </tbody>
         </thead>
