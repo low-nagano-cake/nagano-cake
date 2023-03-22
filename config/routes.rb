@@ -7,6 +7,12 @@ root :to => "public/homes#top"
 get '/admin' => 'admin/homes#top', as: 'admin'
 get "about" => "public/homes#about", as: "about"
 
+
+scope module: 'public' do
+  resources :items, only: [:index, :show]
+end
+
+
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {
@@ -22,8 +28,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
 
 namespace :admin do
-resources :items, only: [:index, :show, :new, :create, :show, :edit, :update, :destroy]
-resources :genres, only: [:index, :create, :edit, :update]
+  resources :items, only: [:index, :show, :new, :create, :show, :edit, :update, :destroy]
+  resources :genres, only: [:index, :create, :edit, :update]
 end
 
 
