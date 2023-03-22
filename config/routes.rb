@@ -10,7 +10,11 @@ get "about" => "public/homes#about", as: "about"
 
 scope module: 'public' do
   resources :items, only: [:index, :show]
+  resources :customers, only: [:show, :edit, :update, :destroy]
 end
+
+# 顧客の退会確認ページ
+get "customers/:id/exit" => "public/customers#exit", as: "customer_exit"
 
 
 # 顧客用
