@@ -8,7 +8,7 @@
 			<td>商品名<%= @item.name %></td>
 			<td>商品説明<%= @item.introduction %></td>
 			<td>ジャンル<%= @item.genre.name %></td>
-			<td>税込価格<%= @item.price %>円
+			<td>税込価格(税抜価格)<%= @item.add_tax_price.to_s(:delimited) %>(<%= @item.price %>)円
 			<td><% if @item.is_active == true %>販売中
 			    <% else @item.is_active == false %>販売停止中</td>
 			    <% end %>
@@ -16,4 +16,5 @@
 	  </tr>
 	</tbody>
 </table>
+
 

@@ -25,7 +25,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
 
 namespace :admin do
-resources :items, only: [:index, :show, :new, :create, :show, :edit, :update]
+resources :items, only: [:index, :show, :new, :create, :show, :edit, :update, :destroy]
 resources :genres, only: [:index, :create, :edit, :update]
 end
 
