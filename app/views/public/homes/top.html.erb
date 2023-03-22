@@ -1,47 +1,79 @@
 <h1>ヘッダー</h1>
 
-<div class='container px-5 px-sm-0'>
-  <div class='row'>
+<div class='container my-5 px-sm-2'>
 
-<div class="col-md-12">
+<!--ジャンル検索-->
+<div class='row'>
+  <div class="col-md-2">
+    <table class="table">
+    <thead>
+        <tr>
+            <th>ジャンル検索</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>ケーキ</td></tr>
+        <tr><td>焼き菓子</td></tr>
+        <tr><td>プリン</td></tr>
+        <tr><td>キャンディ</td></tr>
+    </tbody>
+</table>
+  </div>
 
-
-<div class="col-md-10">
-<div style="background-image: url(<%= image_path("3708631_s.jpg") %>); background-size: cover; background-position: center; height: 427px;">
-
-
-<div class='text-center'>
-  <div class="col-md-6 mx-auto" style="background-color: white;">
-    <div class="d-inline-block text-left mx-auto" style="width: 80%;">
-      <p>ようこそ、なかのCAKEへ！</p>
-      <p>このサイトは、ケーキ販売のECサイトになります。</p>
-      <p>会員でない方も商品の閲覧はできますが、</p>
-      <p>購入には会員登録が必要になります。</p>
+  <div class="col-md-9 offset-1">
+  <!-- PCからタブレット向け -->
+    <div class='row'>
+      <div class="col-md-12 bg" style="background-image: url(<%= image_path("3708631_s.jpg") %>); background-size: cover; background-position: center;height: 427px;">
+        <div class='text-center'>
+          <div class='row'>
+            <div class="col-md-4 d-none d-md-block ml-4" style="background-color: white; background-color: rgba(255, 255, 255, 0.7);height: 427px;">
+              <div class="d-flex justify-content-center align-items-center" style="height: 100%; width: 100%;">
+                <div class="text-left" style="width: 90%;">
+                  <p>ようこそ、なかのCAKEへ！</p>
+                  <p>このサイトは、ケーキ販売のECサイトになります。</p>
+                  <p>会員でない方も商品の閲覧はできますが、</p>
+                  <p>購入には会員登録が必要になります。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  </div>
 </div>
+
+<!-- スマホ向け -->
+<div class='row my-5'>
+  <div class="col-md-12 d-md-none">
+    <p>ようこそ、なかのCAKEへ！</p>
+    <p>このサイトは、ケーキ販売のECサイトになります。</p>
+    <p>会員でない方も商品の閲覧はできますが、</p>
+    <p>購入には会員登録が必要になります。</p>
+  </div>
 </div>
 
 
 <h1>新着商品</h1>
 
-<div class="d-flex flex-row">
-  <% @items.each do |item| %>
-    <div class="col-md-3">
-      <div><%= image_tag(item.image.variant(resize: "100x100")) %></div>
-      <p><%= item.name %></p>
-      <p>¥<%= item.price %></p>
-    </div>
-  <% end %>
+
+<div class='row my-5'>
+
+<% @items.each do |item| %>
+  <div class="col-sm-12 col-md-6 col-lg-3 d-flex flex-column">
+    <%= image_tag(item.image) %>
+
+    <h6><%= item.name %></h6>
+    <p>¥<%= item.price %></p>
+
+  </div>
+<% end %>
+
 </div>
 
 <div class='float-sm-right'>
-<a href="">全ての商品を見る > </a>
+  <a href="">全ての商品を見る > </a>
 </div>
 
 </div>
-</div>
-</div>
-
 <h1>フッダー</h1>
