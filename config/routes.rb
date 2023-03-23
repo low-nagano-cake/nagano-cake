@@ -18,6 +18,7 @@ devise_for :customers,skip: [:passwords], controllers: {
 scope module: 'public' do
   resources :items, only: [:index, :show]
   resources :customers, only: [:show, :edit, :update, :destroy]
+  resources :cart_itmes, only: [:index,:update,:destroy,:destroy_all,:create]
 end
 
 # 顧客の退会確認ページ
