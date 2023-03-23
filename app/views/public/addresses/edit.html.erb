@@ -2,7 +2,7 @@
 
 <div class="container px-5">
   <h3 class="my-4">配送先登録/一覧</h3>
-  <%= form_with model: @address, url: addresses_path(@customer.id), method: :post do |f| %>
+  <%= form_with model: @address, url: address_path(@address.id) do |f| %>
   
   <table class="m-5" width="90%">
     
@@ -37,7 +37,7 @@
       <td></td>
       <td>
         <div class="actions">
-          <%= f.submit "新規登録", class: "btn btn-success px-4" %>
+          <%= f.submit "変更内容を保存", class: "btn btn-success px-4" %>
         </div>
       </td>
     </tr>
