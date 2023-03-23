@@ -1,6 +1,10 @@
 class Public::AddressesController < ApplicationController
   
   def index
+    @customer = Customer.find(params[:id])
+    @address = Address.new
+    @addresses = @address.customers
+    
     
   end
   
