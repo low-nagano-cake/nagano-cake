@@ -18,6 +18,7 @@ scope module: 'public' do
   resources :items, only: [:index, :show]
   resources :customers, only: [:show, :edit, :update, :destroy]
   resources :cart_items, only: [:index,:update,:destroy,:destroy_all,:create]
+  resources :addresses, only: [:index, :edit, :create, :update, :destroy]
 end
 
 # 顧客の退会確認ページ
