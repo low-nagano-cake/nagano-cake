@@ -33,8 +33,8 @@
           </tbody>
         </table>
       </div>
-      
-      <div class="col-md-8">  
+
+      <div class="col-md-8">
         <table class="table table-bordered">
           <thead>
             <tr>
@@ -46,16 +46,15 @@
             </tr>
           </thead>
           <tbody>
-            <%= @orders.each do |order| %>
+            <%= @items.each do |item| %>
              <tr>
-            <td><%= order.name %></td>
-            <td><%= order.price %></td>
-            <td><%= order.amount %></td>
-            <td><%= order.once_price * product_order.quantity %>
-            </td>
+            <td><%= item.name %></td>
+            <td><%= item.price %></td>
+            <td><%= item.amount %></td>
+            <td><%= </td>
             <td>
-              <%= form_with(model: order, method: :patch, local: true) do |f| %>
-              <%= f.select :making_status, OrderDetail.makingstatuses.keys.map { |m| [t("enum.order.status.#{m}"), m], class: "mb-3 sm:mb-0 mr-9 border border-line-200 rounded-[3px] rounded-[3px] py-3 pl-6 w-52 h-12 font-bold" %>
+              <%= form_with(model: item, method: :patch, local: true) do |f| %>
+              <%= f.select :making_status, OrderDetail.making_statuses.keys.map { |m| [t("enum.order.status.#{m}"), m], class: "mb-3 sm:mb-0 mr-9 border border-line-200 rounded-[3px] rounded-[3px] py-3 pl-6 w-52 h-12 font-bold" %>
               <%= f.submit "更新",class:"btn btn-primary" %>
               <% end %>
             </td>
