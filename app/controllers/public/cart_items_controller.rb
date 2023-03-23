@@ -17,10 +17,10 @@ class Public::CartItemsController < ApplicationController
   end
 
 
-  def Create
+  def create
     @item = Item.new(item_params)
     @item.save
-    redirect_to admin_items_path
+    redirect_to cart_path
   end
 
 private
