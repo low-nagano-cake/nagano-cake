@@ -79,6 +79,7 @@ Rails.application.configure do
   #mitsunobu
   config.hosts << "e465722a92524337b8088f2567c86c0f.vfs.cloud9.ap-northeast-1.amazonaws.com"
 
+  config.hosts << "b6e5e7b83a764c21a08fec5d374a389d.vfs.cloud9.ap-northeast-1.amazonaws.com"
 
 
   # dome

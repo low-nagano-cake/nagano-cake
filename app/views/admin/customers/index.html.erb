@@ -1,0 +1,35 @@
+<%= render 'layouts/header' %>
+
+<div class="container">
+  <div class="row">
+      <h2>会員一覧</h2>
+    <div class="col-md-6 mx-auto">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>会員ID</th>
+            <th>氏名</th>
+            <th>メールアドレス</th>
+            <th>ステータス</th>
+          </tr>
+        <tbody>
+          <% @customers.each do |customer| %>
+          <tr>
+            <td><%= customer.id %></td>
+            <td><%= customer.name %></td>
+            <td><%= customer.email %></td>
+            <td>
+                <% if @customer.deleted_at == nil %>
+                    有効
+                  <% else %>
+                    退会
+                <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div>
