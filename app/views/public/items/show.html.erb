@@ -1,45 +1,49 @@
 <div class='container my-5 px-sm-2'>
 
 <!--ジャンル検索-->
-<div class='row'>
-  <div class="col-md-2">
-    <table class="table">
-    <thead>
-        <tr>
-            <th>ジャンル検索</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr><td>ケーキ</td></tr>
-        <tr><td>焼き菓子</td></tr>
-        <tr><td>プリン</td></tr>
-        <tr><td>キャンディ</td></tr>
-    </tbody>
-</table>
-  </div>
-
-  <div class="col-md-3">
-    <%= image_tag(@item.image,class:"img-fluid") %>
-  </div>
-
-  <div class="col-md-7 ">
-    <div class="row">
-      <div class="col-sm-12">
-        <h3><%= @item.name %></h3>
-        <h5><%= @item.introduction %></h5>
-        <h4>¥<%= @item.price %>(税込み)</h4>
+  <div class='row'>
+    <div class="col-md-2">
+      <table class="table">
+      <thead>
+          <tr>
+              <th>ジャンル検索</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr><td>ケーキ</td></tr>
+          <tr><td>焼き菓子</td></tr>
+          <tr><td>プリン</td></tr>
+          <tr><td>キャンディ</td></tr>
+      </tbody>
+  </table>
     </div>
 
-      <div class="col-sm-12 col-md-6 col-lg-3 d-flex flex-column">
+    <div class="col-md-3">
+      <%= image_tag(@item.image,class:"img-fluid") %>
+    </div>
 
-
-
-
+    <div class="col-md-7">
+      <div class="row">
+        <div class="col-sm-12">
+          <h3 class="pb-4"><%= @item.name %></h3>
+          <h5 class="pb-4"><%= @item.introduction %></h5>
+          <h4 class="pb-4">¥<%= @item.price %>(税込み)</h4>
+        </div>
+        </div>
+        <%= form_with model: @newitem do |f| %>
+        <div class="row">
+        <div class="col-md-6 d-flex flex-column">
+          <%= f.select :amount, [['個数選択'],['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6], ['7', 7], ['8', 8]] %>
+          </div>
+          <div class="col-md-6 d-flex flex-column">
+          <%=f.submit 'カートに入れる',class: "btn btn-sm btn-danger"%>
+          </div>
+        </div>
+        <% end %>
       </div>
-    </div>
 
-</div>
-</div>
+    </div>
+  </div>
 </div>
 
 
