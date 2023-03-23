@@ -25,7 +25,7 @@ class Public::AddressesController < ApplicationController
   def update
     @address = Address.find(params[:id])
     if @address.update(address_params)
-      redirect_to addresses_path(current_customer.id), notice: "You have updated shipping-address successfully."
+      redirect_to addresses_path, notice: "You have updated shipping-address successfully."
     else
       render :edit
     end
