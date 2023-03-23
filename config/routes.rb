@@ -18,6 +18,18 @@ Rails.application.routes.draw do
   }
 
 
+scope module: 'public' do
+  resources :items, only: [:index, :show]
+  resources :customers, only: [:show, :edit, :update, :destroy]
+  resources :cart_items, only: [:index,:update,:destroy,:destroy_all,:create]
+  resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+end
+
+# 顧客の退会確認ページ
+get "customers/:id/exit" => "public/customers#exit", as: "customer_exit"
+
+
+
   # 管理者用
   # URL /admin/sign_in ...
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
