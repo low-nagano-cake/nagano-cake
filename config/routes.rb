@@ -4,10 +4,8 @@ Rails.application.routes.draw do
 # ルート
   root :to => "public/homes#top"
 
-
-  scope :public do
-    resources :homes, only: [:top,:about]
-  end
+  get '/admin' => 'admin/homes#top', as: 'admin'
+  get "about" => "public/homes#about", as: "about"
 
 
   # 顧客用
@@ -37,7 +35,7 @@ get "customers/:id/exit" => "public/customers#exit", as: "customer_exit"
   }
 
   namespace :admin do
-  resources :items, only: [:index, :show, :new, :create, :show]
+  resources :items, only: [:index, :show, :new, :create, :show, :edit, :update, :destroy]
   resources :genres, only: [:index, :create, :edit, :update]
   resources :customers, only: [:index, :show, :edit, :update]
   resources :orders, only: [:show, :update]
@@ -47,3 +45,7 @@ end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+
+
+
+
