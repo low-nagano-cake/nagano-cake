@@ -18,11 +18,15 @@ class Public::CustomersController < ApplicationController
   end
   
   def exit
-    
+    @customer = Customer.find(params[:id])
   end
   
   def destroy
-    
+    @customer = Customer.find(params[:id])
+    @customer.update(is_selling: true)
+    reset_session
+    flash[:notice] = "退会しました"
+    redirect_to root_path
   end
   
   
