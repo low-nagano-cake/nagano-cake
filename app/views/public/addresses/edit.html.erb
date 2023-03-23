@@ -1,1 +1,46 @@
 <h1>addresses#edit</h1>
+
+<div class="container px-5">
+  <h3 class="my-4">配送先登録/一覧</h3>
+  <%= form_with model: @address, url: addresses_path(@customer.id), method: :post do |f| %>
+  
+  <table class="m-5" width="90%">
+    
+    <tr class="field">
+      <td>
+        郵便番号(ハイフンなし)
+      </td>
+      <td width="25%">
+        <%= f.text_field :postal_code, autocomplete: "postal_code", class: "form-control border border-dark" %>
+      </td>
+      <td width="30%"></td>
+      <td></td>
+    </tr>
+    <tr class="field">
+      <td>
+        住所
+      </td>
+      <td colspan="3">
+        <%= f.text_field :address, autocomplete: "address", class: "form-control border border-dark" %>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr class="field">
+      <td>
+        宛名
+      </td>
+      <td>
+        <%= f.text_field :name, autocomplete: "name", class: "form-control border border-dark" %>
+      </td>
+      <td></td>
+      <td></td>
+      <td>
+        <div class="actions">
+          <%= f.submit "新規登録", class: "btn btn-success px-4" %>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <% end %>
+</div>
