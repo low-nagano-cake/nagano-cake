@@ -1,3 +1,6 @@
+<%= render 'layouts/header' %>
+
+
 <div class="container">
   <div class="row">
     <div class="col-md-6">
@@ -53,8 +56,10 @@
                 </td>
               </tr>
           </thead>
-  	</table>
+      	</table>
       </div>
+      <%= link_to "変更", edit_admin_customer_path(@customer), class: "btn btn-succsess" %>
+      <%= link_to "注文履歴一覧", admin_path, class: "btn btn-primary" %>
     </div>
   </div>
 </div>
