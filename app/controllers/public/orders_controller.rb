@@ -67,10 +67,9 @@ class Public::OrdersController < ApplicationController
   # 注文履歴一覧
   def index
     @customer = Customer.find(current_customer.id)
-    
     @orders = @customer.orders
-    # @order_details = OrderDetail.where(order_id: @orders.id)
-    # @order_items = Item.where(id: @order_details.item_id)
+    @order_details = OrderDetail.all
+    @items = Item.all
   end
 
   def show
