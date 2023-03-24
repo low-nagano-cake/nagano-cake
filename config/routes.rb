@@ -19,7 +19,13 @@ Rails.application.routes.draw do
 scope module: 'public' do
   resources :items, only: [:index, :show]
   resources :customers, only: [:show, :edit, :update, :destroy]
-  resources :cart_items, only: [:index,:update,:destroy,:destroy_all,:create]
+  resources :cart_items, only: [:index,:update,:destroy,:create] do
+    delete :destroy_all, on: :collection
+  end
+  resources :orders, only: [:new,:index,:check,:complete,:create,:show] do
+    get :complete, on: :collection
+    post :check, on: :collection
+  end
   resources :addresses, only: [:index, :edit, :create, :update, :destroy]
 end
 
