@@ -1,29 +1,24 @@
-<div class="container"> 
+<div class="container col-sm-12 col-md-8 col-lg-7 col-xl-7 px-5 px-sm-0">
 <h2>管理者ログイン</h2>
 <p>メールアドレス：test@test.com</p>
 <p>パスワード：12345678</p>
 
-<div class="row justify-content-end">
-<div class="col-sm-8 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-  <div class="form-group row">
-    <label for="email" class="col-sm-5 col-form-label">メールアドレス</label>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="row mb-3 ml-lg-4">
+    <label for="email" class="col-lg-4 col-xl-4 col-form-label">メールアドレス</label>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-lg-7 col-xl-7" %>
   </div>
 
-  <div class="form-group row">
-   <label for="password" class="col-sm-5 col-form-label">パスワード</label>
-    <%= f.password_field :password, autocomplete: "current-password" %>
+  <div class="row mb-3 ml-lg-4">
+   <label for="password" class="col-lg-4 col-xl-4 col-form-label">パスワード</label>
+    <%= f.password_field :password, autocomplete: "current-password", class: "col-lg-7 col-xl-7" %>
   </div>
 
 
-  <div class="actions">
-    <%= f.submit "ログイン" %>
+  <div class="col-lg-4 col-xl-4">
+    <%= f.submit "ログイン", class: "btn btn-primary btn-lg" %>
   </div>
 <% end %>
 
 <%= render "admin/shared/links" %>
-
-
-
