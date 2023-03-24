@@ -28,7 +28,7 @@
 <div class="form-group row">
     <label for="genre_id" class="col-sm-3 col-form-label">ジャンル</label>
     <div class="col-sm-9">
-    <%= f.select :, options_from_collection_for_select(Genre.all, :id, :name) %>
+     <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name) %>
     </div>
   </div>
   
