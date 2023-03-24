@@ -1,9 +1,8 @@
-<%= render 'layouts/header' %>
 
 
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 mx-auto">
       <h2><%= @customer.last_name %><%= @customer.first_name %>の会員情報</h2>
       <div class="col-md-6 ml-auto">
         <table class="table">
@@ -48,7 +47,7 @@
               <tr>
                 <th>会員ステータス</th>
                 <td>
-                <% if @customer.deleted_at == nil %>
+                <% if @customer.is_deleted == nil %>
                     有効
                   <% else %>
                     退会
@@ -58,7 +57,7 @@
           </thead>
       	</table>
       </div>
-      <%= link_to "変更", edit_admin_customer_path(@customer), class: "btn btn-succsess" %>
+      <%= link_to "変更", edit_admin_customer_path(@customer), class: "btn btn-success" %>
       <%= link_to "注文履歴一覧", admin_path, class: "btn btn-primary" %>
     </div>
   </div>
