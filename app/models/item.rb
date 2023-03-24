@@ -10,5 +10,4 @@ has_many :cart_item, dependent: :destroy
    (self.price * 1.10).round
  end
 
-
 end
