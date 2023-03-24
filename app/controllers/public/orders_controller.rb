@@ -59,9 +59,11 @@ class Public::OrdersController < ApplicationController
       order_detail.amount = cart_item.amount
       order_detail.making_status = 0
       order_detail.save!
+      
   end
       current_customer.cart_items.destroy_all
       redirect_to complete_orders_path
+      
   end
 
   # 注文履歴一覧
