@@ -27,7 +27,6 @@
           <td>
             <% @order_details.each do |order_detail|  %>
               <% if order.id == order_detail.order_id %>
-                <p>order_id：<%= order_detail.order_id %>　item_id：<%= order_detail.item_id %></p>
                 <% @items.each do |item| %>
                   <% if item.id == order_detail.item_id %>
                     <p><%= item.name %></p>
