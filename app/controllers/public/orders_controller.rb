@@ -4,9 +4,6 @@ class Public::OrdersController < ApplicationController
     @newaddress = Address.new
   end
 
-  def index
-  end
-
   def check
     @sum = 0
 
@@ -51,6 +48,15 @@ class Public::OrdersController < ApplicationController
   def create
     current_customer.cart_items.destroy_all
     redirect_to complete_orders_path
+  end
+
+  # 注文履歴一覧
+  def index
+    @customer = Customer.find(current_customer.id)
+    
+    @orders = @customer.orders
+    # @order_details = OrderDetail.where(order_id: @orders.id)
+    # @order_items = Item.where(id: @order_details.item_id)
   end
 
   def show
