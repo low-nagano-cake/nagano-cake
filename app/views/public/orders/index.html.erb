@@ -25,9 +25,15 @@
             <%= order.name %>
           </td>
           <td>
-            <!--<%#= @order_items.each do |order_item|  %>-->
-            <!--  <p><%#= order_item.name %></p>-->
-            <!--<%# end %>-->
+            <% @order_details.each do |order_detail|  %>
+              <% if order.id == order_detail.order_id %>
+                <% @items.each do |item| %>
+                  <% if item.id == order_detail.item_id %>
+                    <p><%= item.name %></p>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
           </td>
           <td><%= order.total_payment %>円</td>
           <td><%= order.status %></td>
