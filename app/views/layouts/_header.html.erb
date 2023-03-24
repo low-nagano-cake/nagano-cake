@@ -8,6 +8,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
         <% if customer_signed_in? %>
+          <h6>ようこそ、<%= current_customer.last_name %>さん！</h6>
           <li class="m-3">
             <%= link_to "マイページ", root_path, class: 'nav-link text-dark border border-secondary rounded' %>
           </li>
