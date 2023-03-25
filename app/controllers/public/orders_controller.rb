@@ -70,7 +70,7 @@ class Public::OrdersController < ApplicationController
   def index
     @customer = Customer.find(current_customer.id)
     @orders = @customer.orders
-    @order_details = OrderDetail.all
+    # @order_details = OrderDetail.all
     @items = Item.all
   end
 
