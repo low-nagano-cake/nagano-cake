@@ -10,7 +10,7 @@ class Public::OrdersController < ApplicationController
     @order = current_customer.orders.new
     @cart_items = CartItem.where(customer_id:[current_customer.id])
     @order.payment_method = params[:order][:payment_method]
-    @order.shipping_cost = 500
+    @order.shipping_cost = 800
     @order.status = 0
 
     ## 注文詳細入力画面から受け取ったパラメーターによって変数定義
@@ -59,11 +59,11 @@ class Public::OrdersController < ApplicationController
       order_detail.amount = cart_item.amount
       order_detail.making_status = 0
       order_detail.save!
-      
+
   end
       current_customer.cart_items.destroy_all
       redirect_to complete_orders_path
-      
+
   end
 
   # 注文履歴一覧
