@@ -8,9 +8,6 @@
           progression: "製作中"
           prepare: "発送準備中"
           sent: "発送済み"
-
-    ja:
-    enums:
       order_detail:
         making_status:
           impossible: "制作不可"
