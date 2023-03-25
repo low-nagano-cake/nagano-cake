@@ -1,75 +1,74 @@
-<div class="container px-5">
-  <h3 class="my-4">配送先登録/一覧</h3>
-  <%= form_with model: @address, url: addresses_path(@customer.id), method: :post do |f| %>
+<div class="container col-sm-12 col-md-8 col-lg-8 col-xl-8 px-5 px-sm-0">
   
-  <table class="m-5" width="900px">
-    
-    <tr class="field">
-      <td width="200px">
-        郵便番号(ハイフンなし)
-      </td>
-      <td width="250px">
-        <%= f.text_field :postal_code, autocomplete: "postal_code", class: "form-control border border-dark" %>
-      </td>
-      <td width="350px"></td>
-      <td></td>
-    </tr>
-    <tr class="field">
-      <td>
-        住所
-      </td>
-      <td colspan="3">
-        <%= f.text_field :address, autocomplete: "address", class: "form-control border border-dark" %>
-      </td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr class="field">
-      <td>
-        宛名
-      </td>
-      <td>
-        <%= f.text_field :name, autocomplete: "name", class: "form-control border border-dark" %>
-      </td>
-      <td></td>
-      <td></td>
-      <td>
-        <div class="actions">
-          <%= f.submit "新規登録", class: "btn btn-success px-4" %>
-        </div>
-      </td>
-    </tr>
-  </table>
-  <% end %>
+  <!--ページ見出し-->
+  <div class="row">
+    <h3 class="mt-5">配送先登録/一覧</h3>
+  </div>
   
-  <table class="table table-bordered border-dark m-4">
-    <thead>
-      <tr>
-        <th width="15%">郵便番号</th>
-        <th width="40%">住所</th>
-        <th width="15%">宛名</th>
-        <th width="30%"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @addresses.each do |address| %>
+  <!--配送先登録フォーム-->
+  <div class="row justify-content-center my-4">
+    <div class="col-12">
+      <%= form_with model: @address, url: addresses_path(@customer.id), method: :post do |f| %>
+      <table>
         <tr>
-          <td>
-            <%= address.postal_code %>
+          <td class="col-3 p-0">郵便番号(ハイフンなし)</td>
+          <td class="col-3">
+            <%= f.text_field :postal_code, autocomplete: "postal_code", class: "form-control border border-dark" %>
           </td>
-          <td>
-            <%= address.address %>
+          <td class="col-4"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>住所</td>
+          <td class="col-3" colspan="2">
+            <%= f.text_field :address, autocomplete: "address", class: "form-control border border-dark" %>
           </td>
-          <td>
-            <%= address.name %>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>宛名</td>
+          <td class="col-3">
+            <%= f.text_field :name, autocomplete: "name", class: "form-control border border-dark" %>
           </td>
+          <td></td>
           <td>
-            <%= link_to '編集する', edit_address_path(address.id), class: "btn btn-success ml-4 px-4" %>
-            <%= link_to '削除する', address_path(address.id), method: :delete, class: "btn btn-danger ml-4 px-4", "data-confirm" => "本当に削除しますか？" %>
+            <div class="actions">
+              <%= f.submit "新規登録", class: "btn btn-success btn-block px-4" %>
+            </div>
           </td>
         </tr>
+      </table>
       <% end %>
-    </tbody>
-  </table>
+    </div>
+  </div>
   
+  <!--配送先一覧-->
+  <div class="row justify-content-center my-5">
+    <div class="col-12">
+      <table class="table table-bordered border-dark m-4">
+        <thead>
+          <tr>
+            <th class="table-active col-2">郵便番号</th>
+            <th class="table-active col-4">住所</th>
+            <th class="table-active col-2">宛名</th>
+            <th class="table-active col-4"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @addresses.each do |address| %>
+            <tr>
+              <td class="align-middle"><%= address.postal_code %></td>
+              <td class="align-middle"><%= address.address %></td>
+              <td class="align-middle"><%= address.name %></td>
+              <td class="text-center">
+                <%= link_to '編集する', edit_address_path(address.id), class: "btn btn-success px-4" %>
+                <%= link_to '削除する', address_path(address.id), method: :delete, class: "btn btn-danger my-2 px-4", "data-confirm" => "本当に削除しますか？" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
