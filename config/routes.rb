@@ -18,7 +18,9 @@ Rails.application.routes.draw do
 
 scope module: 'public' do
   resources :items, only: [:index, :show]
-  resources :customers, only: [:show, :edit, :update, :destroy]
+  resource :customer, only: [:show, :edit, :update, :destroy] do
+    get :exit, on: :collection
+  end
   resources :cart_items, only: [:index,:update,:destroy,:create] do
     delete :destroy_all, on: :collection
   end
@@ -29,8 +31,7 @@ scope module: 'public' do
   resources :addresses, only: [:index, :edit, :create, :update, :destroy]
 end
 
-# 顧客の退会確認ページ
-get "customers/:id/exit" => "public/customers#exit", as: "customer_exit"
+
 
 
 
