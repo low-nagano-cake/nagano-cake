@@ -1,28 +1,28 @@
 class Public::CustomersController < ApplicationController
   
   def show
-    @customer = Customer.find(params[:id])
+    @customer = Customer.find(current_customer.id)
   end
   
   def edit
-    @customer = Customer.find(params[:id])
+    @customer = Customer.find(current_customer.id)
   end
   
   def update
-    @customer = Customer.find(params[:id])
+    @customer = Customer.find(current_customer.id)
     if @customer.update(customer_params)
-      redirect_to customer_path(@customer.id), notice: "You have updated customer successfully."
+      redirect_to customer_path, notice: "You have updated customer successfully."
     else
       render :edit
     end
   end
   
   def exit
-    @customer = Customer.find(params[:id])
+    @customer = Customer.find(current_customer.id)
   end
   
   def destroy
-    @customer = Customer.find(params[:id])
+    @customer = Customer.find(current_customer.id)
     @customer.update(is_selling: true)
     reset_session
     flash[:notice] = "退会しました"
