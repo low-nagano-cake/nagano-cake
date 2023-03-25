@@ -4,9 +4,6 @@ class Public::OrdersController < ApplicationController
     @newaddress = Address.new
   end
 
-  def index
-  end
-
   def check
     @sum = 0
 
@@ -49,11 +46,41 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-    current_customer.cart_items.destroy_all
-    redirect_to complete_orders_path
+      #orderテーブル
+      @order = Order.new(order_params)
+      @order.save
+
+      #order_detailsテーブル
+      current_customer.cart_items.each do |cart_item|
+      order_detail = OrderDetail.new
+      order_detail.item_id = cart_item.item_id
+      order_detail.order_id = @order.id
+      order_detail.price = cart_item.item.price
+      order_detail.amount = cart_item.amount
+      order_detail.making_status = 0
+      order_detail.save!
+      
+  end
+      current_customer.cart_items.destroy_all
+      redirect_to complete_orders_path
+      
+  end
+
+  # 注文履歴一覧
+  def index
+    @customer = Customer.find(current_customer.id)
+    @orders = @customer.orders
+    @order_details = OrderDetail.all
+    @items = Item.all
   end
 
   def show
+    @order = Order.find(params[:id])
+    @order_details = OrderDetail.where(order_id: @order.id)
+  end
+
+  def order_params
+    params.require(:order).permit(:customer_id, :postal_code, :address, :name, :shipping_cost, :total_payment, :payment_method,  :status,)
   end
 
   def address_params
