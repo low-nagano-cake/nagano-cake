@@ -1,4 +1,4 @@
-<div class="container col-sm-12 col-md-8 col-lg-7 col-xl-7 px-5 px-sm-0">
+<div class="container col-sm-12 col-md-8 col-lg-7 col-xl-7 px-5 px-sm-0" style="height: 750px">
   <div class="row">
     <h3 class="ml-5 mt-5 mb-3">ログイン</h3>
   </div>
@@ -14,15 +14,17 @@
       <table style="width: 70%">
         <tr>
           <td width="25%" height="60px"><%= f.label :email, "メールアドレス", class: "col-form-label" %></td>
-          <td width="70%"><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control border border-dark" %></td>
+          <td colspan="2" width="70%"><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control border border-dark" %></td>
+          <td></td>
         </tr>
         <tr>
           <td height="50px"><%= f.label :password, "パスワード", class: "col-form-label" %></td>
-          <td><%= f.password_field :password, autocomplete: "current-password", class: "form-control border border-dark" %></td>
+          <td colspan="2"><%= f.password_field :password, autocomplete: "current-password", class: "form-control border border-dark" %></td>
         </tr>
         <tr>
           <td></td>
-          <td height="130px"><%= f.submit "ログイン", class: "btn btn-primary btn-lg" %></td>
+          <td width="25%" height="130px"><%= f.submit "ログイン", class: "btn btn-primary btn-block" %></td>
+          <td></td>
         </tr>
       </table>
     </div>
