@@ -5,7 +5,7 @@
     <h3 class="mt-5">配送先登録/一覧</h3>
   </div>
   
-  <!--見出し以外のコンテンツ-->
+  <!--配送先登録フォーム-->
   <div class="row justify-content-center my-4">
     <div class="col-12">
       <%= form_with model: @address, url: addresses_path(@customer.id), method: :post do |f| %>
@@ -43,6 +43,7 @@
     </div>
   </div>
   
+  <!--配送先一覧-->
   <div class="row justify-content-center my-5">
     <div class="col-12">
       <table class="table table-bordered border-dark m-4">
