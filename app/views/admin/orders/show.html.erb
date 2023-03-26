@@ -1,9 +1,9 @@
 <div class="container">
   <div="row">
-    <h2>注文履歴詳細</h2>
+    <h2 class="mt-4 bg-">注文履歴詳細</h2>
     <div class="ml-auto">
       <div class="order_info">
-        <table class="table table-borderless">
+        <table class="table table-borderless table-striped my-4">
           <tbody>
             <tr>
               <th>購入者</th>
@@ -62,7 +62,7 @@
           <% end %>
           </tbody>
         </table>
-        <table table col-4 ml-auto table-borderless>
+        <table class="table col-3 mr-auto table-borderless mt-3">
           <tr>
             <th>商品小計</th>
             <td><%= @order.total_payment - @order.shipping_cost %></td>
