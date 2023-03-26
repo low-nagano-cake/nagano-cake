@@ -1,20 +1,27 @@
 
-<%= link_to "ジャンル一覧", admin_genres_path %>
-
 <div class="container">
 
-<div class="row justify-content-between">
-<div class="col-4">商品一覧</div>
-<div class="col-4 pb-2">
+<div class="row my-4">
+ 
+ <div class = "col-md-5">
+  <div class="row">
+    <div class="col-md-4 mx-2 mb-0 bg-light">
+    <h3>商品一覧</h3>
+    </div>
+   </div>
+ </div>
+ <div class = "col-md-7">
+  <div class="text-right mr-5">
  <%= link_to new_admin_item_path do %>
-<button type="button" class="btn btn-primary rounded-circle p-0" style="width:2rem;height:2rem;">＋</button>
+  <button type="button" class="btn btn-primary rounded-circle p-0" style="width:2rem;height:2rem;">＋</button>
  <% end %>
+  </div>
 </div>
 </div>
 
-<div class="row justify-content-center">
-<table class="table table-striped">
-<thead>
+<div class="row my-5">
+<table class="table">
+<thead class="table-active">
   <tr>
    <th>商品ID</th>
    <th>商品名</th>
@@ -32,15 +39,12 @@
   <td><% if item.is_active == true %>販売中
      <% else item.is_active == false %>販売停止中
      <% end %><td>
-  <td><%= link_to "Destroy", admin_item_path(item.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
   </tr>
   <% end %>
- </tr>
-
 </tbody>
-
 </table>
 </div>
+
 </div>
 
 
