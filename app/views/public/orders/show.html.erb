@@ -38,16 +38,16 @@
             <% @order_details.each do |order_detail|  %>
               <% @all_items_sum += order_detail.amount * order_detail.item.add_tax_price %>
             <% end %>
-            <%= @all_items_sum %>
+            <%= @all_items_sum.to_s(:delimited) %>
           </td>
         </tr>
         <tr>
           <td class="table-active">配送料</td>
-          <td><%= @order.shipping_cost %></td>
+          <td><%= @order.shipping_cost.to_s(:delimited) %></td>
         </tr>
         <tr>
           <td class="table-active"><strong>ご請求額</strong></td>
-          <td><%= @order.total_payment %></td>
+          <td><%= @order.total_payment.to_s(:delimited) %></td>
         </tr>
       </table>
       
@@ -68,12 +68,12 @@
         <tr>
           <td><%= order_detail.item.name %></td>
           <td>
-            <%= order_detail.item.add_tax_price %>
+            <%= order_detail.item.add_tax_price.to_s(:delimited) %>
           </td>
           <td><%= order_detail.amount %></td>
           <td>
             <% one_items_sum = order_detail.amount * order_detail.item.add_tax_price %>
-            <%= one_items_sum %>
+            <%= one_items_sum.to_s(:delimited) %>
           </td>
         </tr>
       <% end %>
