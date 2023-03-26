@@ -2,7 +2,7 @@
   <div class="row">
     <h3>注文履歴一覧</h3>
   </div>
-  <div class="row text-center">
+  <div class="row">
     <div class="col">
       <h4><strong>注文情報</strong></h4>
       <table class="table table-bordered border-dark m-4"  style="width: 100%">
@@ -11,7 +11,7 @@
           <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
         </tr>
         <tr>
-          <td class="table-active">配送先</td>
+          <td class="table-active align-middle">配送先</td>
           <td>
             〒<%= @order.postal_code %><br>
             <%= @order.address %><br>
