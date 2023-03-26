@@ -1,63 +1,82 @@
-<header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-light py-4">
-    <div class="container">
+<header style="border-bottom: 5px solid #d8d8d8">
+  <div class="container col-sm-12 col-md-10 col-lg-12 col-xl-12 d-flex justify-content-between pr-0">
+    
+    <!--ロゴ-->
+    <div class="row">
       <a class="navbar-brand text-dark" href="/">
-        <%= image_tag('logo-10x10.png')
+        <%= image_tag('logo-30x30.png') %>
       </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
+    </div>
+    
+    <!--リンク一覧-->
+    <div class="row-auto justify-content-end d-flex align-content-center flex-wrap">
+      <nav class="navbar navbar-expand-lg navbar-expand-md navbar-dark pt-3">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto">
+          <% if customer_signed_in? %>
+            
+            <li class="m-3">
+              <%= link_to "マイページ", customer_path, class: 'nav-link text-dark border border-secondary rounded' %>
+            </li>
+            <li class="m-3">
+              <%= link_to "商品一覧", items_path, class: 'nav-link text-dark border border-secondary rounded' %>
+            </li>
+            <li class="m-3">
+              <%= link_to "カート", cart_items_path, class: 'nav-link text-dark border border-secondary rounded' %>
+            </li>
+            <li class="m-3">
+              <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-dark border border-secondary rounded' %>
+            </li>
+          <% elsif admin_signed_in? %>
+            <li class="m-3">
+              <%= link_to "商品一覧", admin_items_path, class: 'nav-link text-dark border border-secondary rounded' %>
+            </li>
+            <li class="m-3">
+              <%= link_to "会員一覧", admin_customers_path, class: 'nav-link text-dark border border-secondary rounded' %>
+            </li>
+            <li class="m-3">
+              <%= link_to "注文履歴一覧", admin_path, class: 'nav-link text-dark border border-secondary rounded' %>
+            </li>
+            <li class="m-3">
+              <%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link text-dark border border-secondary rounded' %>
+            </li>
+              <li class="m-3">
+              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark border border-secondary rounded' %>
+            </li>
+          <% else %>
+            <li class="m-3">
+              <%= link_to "About", about_path, class: 'nav-link text-center text-dark border border-secondary rounded', style: "width: 80px" %>
+            </li>
+            <li class="m-3">
+              <%= link_to "商品一覧", items_path, class: 'nav-link text-dark border border-secondary rounded' %>
+            </li>
+            <li class="m-3">
+              <%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-dark border border-secondary rounded' %>
+            </li>
+            <li class="m-3">
+              <%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-dark border border-secondary rounded' %>
+            </li>
+          <% end %>
+          </ul>
+        </div>
+      </nav>
+      
+      <!--ウェルカムメッセージと検索窓-->
+      <div class="row justify-content-center align-items-center ml-5">
+        
+        <!--ウェルカムメッセージ-->
         <% if customer_signed_in? %>
-          <h6>ようこそ、<%= current_customer.last_name %>さん！</h6>
-          <li class="m-3">
-            <%= link_to "マイページ", customer_path, class: 'nav-link text-dark border border-secondary rounded' %>
-          </li>
-          <li class="m-3">
-            <%= link_to "商品一覧", items_path, class: 'nav-link text-dark border border-secondary rounded' %>
-          </li>
-          <li class="m-3">
-            <%= link_to "カート", cart_items_path, class: 'nav-link text-dark border border-secondary rounded' %>
-          </li>
-          <li class="m-3">
-            <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-dark border border-secondary rounded' %>
-          </li>
-        <% elsif admin_signed_in? %>
-          <li class="m-3">
-            <%= link_to "商品一覧", admin_items_path, class: 'nav-link text-dark border border-secondary rounded' %>
-          </li>
-          <li class="m-3">
-            <%= link_to "会員一覧", admin_customers_path, class: 'nav-link text-dark border border-secondary rounded' %>
-          </li>
-          <li class="m-3">
-            <%= link_to "注文履歴一覧", admin_path, class: 'nav-link text-dark border border-secondary rounded' %>
-          </li>
-          <li class="m-3">
-            <%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link text-dark border border-secondary rounded' %>
-          </li>
-          <li class="m-3">
-            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark border border-secondary rounded' %>
-          </li>
-        <% else %>
-          <li class="m-3">
-            <%= link_to "About", about_path, class: 'nav-link text-dark border border-secondary rounded' %>
-          </li>
-          <li class="m-3">
-            <%= link_to "商品一覧", items_path, class: 'nav-link text-dark border border-secondary rounded' %>
-          </li>
-          <li class="m-3">
-            <%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-dark border border-secondary rounded' %>
-          </li>
-          <li class="m-3">
-            <%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-dark border border-secondary rounded' %>
-          </li>
+          <h6 class="text-center my-0">ようこそ、<%= current_customer.last_name %>さん！</h6>
         <% end %>
-        </ul>
+        
+        <!--検索窓-->
+        <div class="search-group mx-5">
+          <input type="text" placeholder="Search">
+        </div>
       </div>
     </div>
-    <div class="search-group">
-      <input type="text" placeholder="Search">
-    </div>
-  </nav>
+  </div>
 </header>
