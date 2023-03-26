@@ -15,7 +15,7 @@
         <tbody>
           <% @orders.each do |order| %>
           <tr>
-            <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+            <td><%= link_to order.created_at.strftime('%Y/%m/%d'), admin_order_path(order.id), style: "color: #212529; text-decoration: underline;" %></td>
             <td><%= order.customer.last_name + order.customer.first_name %></td>
             <td><%= order.order_details.count %></td>
             <%= form_with model:order, method: :patch, local:true do |f| %>
