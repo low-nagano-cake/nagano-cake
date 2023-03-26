@@ -6,10 +6,11 @@ class Admin::OrderDetailsController < ApplicationController
      redirect_to admin_order_path(@order)
     else
      render "show"
+    end
    end
- end
 
  protected
+ 
  def order_detail_params
    params.require(:order_detail).permit(:maiking_status)
  end

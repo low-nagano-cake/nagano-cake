@@ -1,7 +1,7 @@
 
 <div class="container">
-  <div class="row">
-      <h2>会員一覧</h2>
+  <h2 class="mt-3">会員一覧</h2>
+  <div class="row mt-4">
     <div class="col-md-10 mx-auto">
       <table class="table table-striped">
         <thead>
@@ -15,7 +15,7 @@
           <% @customers.each do |customer| %>
           <tr>
             <td><%= customer.id %></td>
-            <td><%= link_to customer.last_name + customer.first_name, admin_customer_path(customer.id) %></td>
+            <td><%= link_to customer.last_name + customer.first_name, admin_customer_path(customer.id), style: "color: #212529; text-decoration: underline;" %></td>
             <td><%= customer.email %></td>
             <td>
                 <% if customer.is_deleted == nil %>
