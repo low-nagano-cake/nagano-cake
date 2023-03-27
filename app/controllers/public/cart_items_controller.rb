@@ -1,6 +1,6 @@
 class Public::CartItemsController < ApplicationController
 
-  before_action :authenticate_user,except: [:create]
+  before_action :authenticate_customer!,except: [:create]
 
   def index
 
@@ -52,13 +52,6 @@ class Public::CartItemsController < ApplicationController
   end
 
 private
-
-  #ログインしているか判定。[create]は除外。(messageを表示するため。)
-  def authenticate_user
-    unless customer_signed_in?
-      redirect_to root_path
-    end
-  end
 
   def cart_item_params
    params.require(:cart_item).permit(:amount, :item_id, :customer_id)

@@ -32,14 +32,14 @@
         </div>
         <%= form_with model:@newitem,url: cart_items_path,local: true do |f| %>
         <div class="row">
-        <div class="col-md-3 d-flex flex-column pb-3">
-          <%= f.select :amount, [['個数選択',0],['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6], ['7', 7], ['8', 8]], {},class:"h-100"%>
+        <div class="col-md-3 d-flex flex-column pb-3 h-100">
+          <%= f.select :amount, [['個数選択',0],['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6], ['7', 7], ['8', 8]] %>
           </div>
           <div class="col-md-3 d-flex flex-column">
           <%= f.hidden_field :item_id, :value => @item.id %>
-          <%=f.submit 'カートに入れる',class: "btn btn-primary"%>
-          <p><%= flash[:message] %></p>
+          <%=f.submit 'カートに入れる',class: "btn btn-sm btn btn-primary"%>
           </div>
+          <p><%= flash[:message] %></p>
         </div>
         <% end %>
       </div>
