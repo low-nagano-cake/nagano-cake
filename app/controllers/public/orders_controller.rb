@@ -9,9 +9,9 @@ class Public::OrdersController < ApplicationController
   def check
     @sum = 0
 
-    @order = current_customer.orders.new
+    @order = current_customer.orders.new(order_params)
     @cart_items = CartItem.where(customer_id:[current_customer.id])
-    @order.payment_method = params[:order][:payment_method]
+    # @order.payment_method = params[:order][:payment_method]
     @order.shipping_cost = 800
     @order.status = 0
 
@@ -80,7 +80,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:customer_id, :postal_code, :address, :name, :shipping_cost, :total_payment, :payment_method,  :status,)
+    params.require(:order).permit(:customer_id, :postal_code, :address, :name, :shipping_cost, :total_payment, :payment_method,  :status)
   end
 
   def address_params
