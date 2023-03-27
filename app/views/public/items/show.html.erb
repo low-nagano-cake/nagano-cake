@@ -27,7 +27,7 @@
         <div class="col-sm-12">
           <h3 class="pb-4"><%= @item.name %></h3>
           <h5 class="pb-4"><%= @item.introduction %></h5>
-          <h4 class="pb-4">¥ <%= @item.add_tax_price %></h4>
+          <h4 class="pb-4">¥ <%= @item.add_tax_price %>(税込)</h4>
         </div>
         </div>
         <%= form_with model:@newitem,url: cart_items_path,local: true do |f| %>
