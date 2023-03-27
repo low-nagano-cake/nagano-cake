@@ -26,10 +26,10 @@
       </div>
     <% @items.each do |item| %>
       <div class="col-sm-12 col-md-6 col-lg-3 d-flex flex-column">
-        <%= image_tag(item.image,class:"img-fluid") %>
+        <%= image_tag(item.image,class:"img-fluid pb-2") %>
 
         <h6><%= link_to item.name,item_path(item.id) %></h6>
-        <p>¥<%= item.price %></p>
+        <p>¥<%= item.add_tax_price %></p>
 
       </div>
     <% end %>
