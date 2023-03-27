@@ -1,4 +1,7 @@
 class Public::OrdersController < ApplicationController
+
+  before_action :authenticate_user
+
   def new
     @neworder = Order.new
     @newaddress = Address.new
@@ -86,3 +89,13 @@ class Public::OrdersController < ApplicationController
   end
 
 end
+
+
+private
+
+  #ログイン判定。
+  def authenticate_user
+    unless customer_signed_in?
+      redirect_to root_path
+    end
+  end
