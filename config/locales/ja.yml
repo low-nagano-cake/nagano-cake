@@ -13,9 +13,9 @@
           sent: "発送済み"
           
         # payment_methodカラム
-        # payment_method:
-        #   credit_card: "クレジットカード"
-        #   bank_transfer: "銀行振込"
+        payment_method:
+          credit_card: "クレジットカード"
+          bank_transfer: "銀行振込"
       
       
       order_detail:
