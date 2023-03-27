@@ -1,7 +1,9 @@
-<div class="container col-sm-12 col-md-8 col-lg-7 col-xl-7 px-5 px-sm-0">
-<h2>管理者ログイン</h2>
-<p>メールアドレス：test@test.com</p>
-<p>パスワード：12345678</p>
+<div class="container col-sm-12 col-md-8 col-lg-7 col-xl-7 px-5 px-sm-0" style="height: 750px">
+<div class="row">
+<h3 class="ml-5 mt-5 mb-3">管理者ログイン</h3>
+  </div>
+
+
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
@@ -22,3 +24,5 @@
 <% end %>
 
 <%= render "admin/shared/links" %>
+
+

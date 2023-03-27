@@ -1,4 +1,6 @@
 class Public::ItemsController < ApplicationController
+before_action :authenticate_public!, except: [:index, :show]
+  
   def index
     @items = Item.all
   end
