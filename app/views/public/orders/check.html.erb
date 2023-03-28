@@ -57,11 +57,7 @@
 <div>
 <div class="mb-5">
 <h4>支払方法</h4>
-<% if @order.payment_method == 0 %>
-<p>クレジットカード</p>
-<% else %>
-<p>現金振込</p>
-<% end %>
+<%= @order.payment_method_i18n %>
 </div>
 <div>
 <h4>お届け先</h4>
