@@ -8,9 +8,18 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body>
-    <%= yield %>
+    <!--ヘッダー-->
+    <%= render 'layouts/header' %>
+    <main style="padding-bottom: 80px">
+      <%= yield %>
+    </main>
+    
+    <!--フッター-->
+    <%= render 'layouts/footer' %>
   </body>
 </html>
+

@@ -1,0 +1,51 @@
+
+<div class="container">
+
+<div class="row my-4">
+ 
+ <div class = "col-md-5">
+  <div class="row">
+    <div class="col-md-4 mx-2 mb-0 bg-light">
+    <h3>商品一覧</h3>
+    </div>
+   </div>
+ </div>
+ <div class = "col-md-7">
+  <div class="text-right mr-5">
+ <%= link_to new_admin_item_path do %>
+  <button type="button" class="btn btn-primary rounded-circle p-0" style="width:2rem;height:2rem;">＋</button>
+ <% end %>
+  </div>
+</div>
+</div>
+
+<div class="row my-5">
+<table class="table">
+<thead class="table-active">
+  <tr>
+   <th>商品ID</th>
+   <th>商品名</th>
+   <th>税抜価格</th>
+   <th>ジャンル</th>
+   <th>ステータス</th>
+  </tr>
+ </thead>
+<tbody>
+ <tr><% @items.each do |item| %>
+  <td><%= item.id %></td>
+  <td><%= link_to item.name, admin_item_path(item) %></td>
+  <td><%= item.price %></td>
+  <td><%= item.genre.name %></td>
+  <td><% if item.is_active == true %>販売中
+     <% else item.is_active == false %>販売停止中
+     <% end %><td>
+  </tr>
+  <% end %>
+</tbody>
+</table>
+</div>
+
+</div>
+
+
+

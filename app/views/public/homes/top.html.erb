@@ -1,0 +1,74 @@
+<div class='container my-5 px-sm-2'>
+
+<!--ジャンル検索-->
+<div class='row'>
+  <div class="col-md-2">
+    <table class="table">
+    <thead>
+        <tr>
+            <th>ジャンル検索</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>ケーキ</td></tr>
+        <tr><td>焼き菓子</td></tr>
+        <tr><td>プリン</td></tr>
+        <tr><td>キャンディ</td></tr>
+    </tbody>
+</table>
+  </div>
+
+  <div class="col-md-9 offset-1">
+    <div class='row'>
+      <div class="col-md-12 bg" style="background-image: url(<%= image_path("3708631_s.jpg") %>); background-size: cover; background-position: center;height: 427px;">
+        <div class='text-center'>
+          <div class='row'>
+            <div class="col-md-4 d-none d-md-block ml-4" style="background-color: white; background-color: rgba(255, 255, 255, 0.7);height: 427px;">
+              <div class="d-flex justify-content-center align-items-center" style="height: 100%; width: 100%;">
+                <div class="text-left" style="width: 90%;">
+                  <p>【ながのCAKE公式通販サイト】</p>
+                  <p>〜 ながのCAKEがお届けする、長野県から全国へ広がる幸せの味 〜</p>
+                  <p>あなたの日常に彩りを添える、こだわりのスイーツをお楽しみください。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- スマホ向け -->
+<div class='row my-5'>
+  <div class="col-md-12 d-md-none">
+    <p>【ながのCAKE公式通販サイト】</p>
+    <p>〜 ながのCAKEがお届けする、長野県から全国へ広がる幸せの味 〜</p>
+    <p>あなたの日常に彩りを添える、こだわりのスイーツをお楽しみください。</p>
+  </div>
+</div>
+
+
+<h1>新着商品</h1>
+
+
+<div class='row my-2'>
+
+<% @items.each do |item| %>
+  <div class="col-sm-12 col-md-6 col-lg-3 d-flex flex-column">
+    <%= image_tag(item.image,class:"img-fluid pb-2") %>
+
+    <h6><%= link_to item.name,item_path(item.id),class:"pb-2" %></h6>
+    <p>¥<%= item.add_tax_price %></p>
+
+  </div>
+<% end %>
+
+</div>
+
+<div class='float-sm-right'>
+  <h5><%= link_to "全ての商品を見る",items_path %></h5>
+</div>
+
+</div>

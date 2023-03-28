@@ -1,0 +1,29 @@
+
+  ja:
+    enums:
+      
+      # orderテーブル
+      order:
+        # statusカラム
+        status:
+          wait: "入金待ち"
+          payment_confirmation: "入金確認"
+          progression: "製作中"
+          prepare: "発送準備中"
+          sent: "発送済み"
+          
+        # payment_methodカラム
+        payment_method:
+          credit_card: "クレジットカード"
+          bank_transfer: "銀行振込"
+      
+      
+      order_detail:
+        making_status:
+          impossible: "制作不可"
+          wait: "制作待ち"
+          progression: "製作中"
+          completion: "製作完了"
+
+
+

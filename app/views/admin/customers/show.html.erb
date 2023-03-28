@@ -1,0 +1,67 @@
+
+
+<div class="container">
+  <h2 class="mt-5"><%= @customer.last_name %><%= @customer.first_name %>の会員詳細</h2>
+  <div class="row">
+    <div class="col-12 mr-auto my-5 ml-3">
+        <table class="table table-borderless table-striped">
+            <tbody class="table-light">
+              <tr class="col-3">
+                <th>会員ID</th>
+                <td>
+                  <%= @customer.id %>
+                </td>
+              </tr>
+
+              <tr>
+                <th>氏名</th>
+                <td><%= @customer.last_name %>&ensp;<%= @customer.first_name %></td>
+              </tr>
+
+              <tr>
+                <th>フリガナ</th>
+                <td><%= @customer.last_name_kana %>&ensp;<%= @customer.first_name_kana %></td>
+              </tr>
+
+              <tr>
+                <th>郵便番号</th>
+                <td><%= @customer.postal_code %></td>
+              </tr>
+
+              <tr>
+                 <th>住所</th>
+                <td><%= @customer.address %></td>
+              </tr>
+
+              <tr>
+                <th>電話番号</th>
+                <td><%= @customer.telephone_number %></td>
+              </tr>
+
+              <tr>
+                <th>メールアドレス</th>
+                <td><%= @customer.email %></td>
+              </tr>
+
+              <tr>
+                <th>会員ステータス</th>
+                <td>
+                <% if @customer.is_selling == false %>
+                    有効
+                  <% else %>
+                    退会
+                  <% end %>
+                </td>
+              </tr>
+          </thead>
+      	</table>
+      </div>
+  </div>
+  <div class="row">
+    <div class="mx-auto d-flex justify-content-center">
+        <%= link_to "変更", edit_admin_customer_path(@customer), class: "btn btn-success mr-5" %>
+        <%= link_to "注文履歴一覧", admin_path, class: "btn btn-primary ml-5" %>
+    </div>
+  </div>
+
+</div>
